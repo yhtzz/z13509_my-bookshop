@@ -1,0 +1,39 @@
+{
+  "name": "z13509_my-bookshop",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7",
+    "@sap/cds-hana": "^2",
+    "@sap/cds-mtxs": "^1.16.0",
+    "@sap/xssec": "^3",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^7",
+    "sqlite3": "^5.1.7"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": "./db/my-bookshop.db"
+        }
+      },
+      "[production]": {
+        "db": "hana",
+        "auth": "xsuaa",
+        "multitenancy": true
+      }
+    },
+    "profile": "with-mtx-sidecar"
+  }
+}
